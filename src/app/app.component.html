@@ -7,7 +7,9 @@
 <router-outlet></router-outlet>
 
 <div class="container">
- <form>
+  <!-- <form>
+  <!-- <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm.value)"></form> -->
+  <form #todoForm= "ngForm" (ngSubmit)="todoSubmit(todoForm.value); todoForm.resetForm()" >
   <div class="form-group">
   <h1 class="text-center text-primary">Todo App</h1>
    <div class="input-group-prepend">
@@ -22,8 +24,6 @@
      <!-- <span class="input-group-text">Add</span> -->
      <span class="input-group-text" (click)="addTodo(todo.value)">Add</span>
     
-    <!-- <p>{{todo.value}}</p> -->
-
    </div>
   
   
@@ -31,12 +31,9 @@
     <ul class="list-instyled">
      
       <li *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)" class="material-icons">delete</i></li>
-     
+      
      </ul>
     </div>
-
-  
-  
   
   </div>
  </form>
